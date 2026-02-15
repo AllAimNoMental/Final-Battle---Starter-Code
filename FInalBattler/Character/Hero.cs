@@ -17,15 +17,18 @@ namespace FinalBattler.Character
         public List<Spell> Spells { get; set; }
         public List<Equipment> Equipment { get; set; }
 
-        public Hero()
+        public Hero(string name)
         {
-            Name = "Unknown";
+            Name = name;
             Level = 0;
             TotalHealth = 1;
             TotalLuck = 1;
             TotalPower = 1;
+            Mana = 1;
 
         }
+       
+
 
         public void LevelUp()
         {
@@ -57,11 +60,16 @@ namespace FinalBattler.Character
 
         public void DisplayStats(bool showTotalStats = false)
         {
-
+            Console.WriteLine($"Name:{Name}");
+            Console.WriteLine($"Level:{Level}");
+            Console.WriteLine($"Health: Current: {Health}/ Max:{TotalHealth}");
+            Console.WriteLine($"Power: Current: {Power}/ Max:{TotalPower}");
+            Console.WriteLine($"Luck: Current: {Luck}/ Max: {TotalLuck}");
+            Console.WriteLine($"Class:{CombatClass}");
         }
        public  void CalculateTotals()
         {
-
+           
         }
 
     }
