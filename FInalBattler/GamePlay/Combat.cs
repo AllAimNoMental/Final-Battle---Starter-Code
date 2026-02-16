@@ -68,6 +68,8 @@ namespace FinalBattler.GamePlay
                 if (dise >= 4)
                 {
                     AttackPhase(currentAttacker, currentEnemy);
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
 
                 }
 
@@ -76,6 +78,8 @@ namespace FinalBattler.GamePlay
                     Console.WriteLine(currentAttacker.Name + "missed");
                     Console.WriteLine(currentEnemy.Name + "get defense," + currentAttacker.Name + "made less damage");
                     DefendPhase(currentAttacker, currentEnemy);
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
 
                 }
                 Console.WriteLine($"Current {currentAttacker.Name} health |{currentAttacker.Health}| ");
@@ -88,11 +92,15 @@ namespace FinalBattler.GamePlay
                 {
                     Console.WriteLine(players.Hero2.Name + "Wins");
                     end = true;
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
                 }
                 else if (players.Hero2.Health <= 0)
                 {
                     Console.WriteLine(players.Hero1.Name + "Wins");
                     end = true;
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
 
                 }
                 Hero swipe = currentAttacker;
@@ -126,10 +134,11 @@ namespace FinalBattler.GamePlay
                 atttacker.Mana -= manaUsed;
 
                 Console.WriteLine(atttacker.Name + " used mana to attack ");
+
             }
             else
             {
-                Console.WriteLine(atttacker.Name + " does not have enought mana to attack with magic");
+                Console.WriteLine(atttacker.Name + " does not have enought mana to attack with magic ");
                 int damage = atttacker.Power / 3;
                 enemy.Health -= damage;
             }
@@ -158,18 +167,22 @@ namespace FinalBattler.GamePlay
             while (!end)
             {
                 int dise = rand.Next(1, 7);
-                Console.WriteLine(currentAttacker.Name + "Rolled the dise");
+                Console.WriteLine(currentAttacker.Name + " Rolled the dise ");
                 if (dise >= 4)
                 {
                     AttackPhase(currentAttacker, currentEnemy);
                     Console.WriteLine($"{currentAttacker.Name} attacked {currentEnemy.Name} with magic and meele");
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
                 }
 
                 else
                 {
                     Console.WriteLine(currentAttacker.Name + "missed");
-                    Console.WriteLine(currentEnemy.Name + "get defense," + currentAttacker.Name + "made less damage");
+                    Console.WriteLine(currentEnemy.Name + " get defense, " + currentAttacker.Name + "made less damage");
                     DefendPhase(currentAttacker, currentEnemy);
+                    Console.WriteLine($"{currentAttacker.Name} Health: {currentAttacker.Health}");
+                    Console.WriteLine($"{currentEnemy.Name} Health: {currentEnemy.Health}");
                 }
 
 
@@ -178,15 +191,15 @@ namespace FinalBattler.GamePlay
                 {
                     Console.WriteLine(currentAttacker.Name + "Wins");
                     end = true;
-                    Console.WriteLine(currentAttacker.Name + "final health " + currentAttacker.Health);
-                    Console.WriteLine(currentEnemy.Name + "final health " + currentEnemy.Health);
+                    Console.WriteLine(currentAttacker.Name + " final health " + currentAttacker.Health);
+                    Console.WriteLine(currentEnemy.Name + " final health " + currentEnemy.Health);
                 }
                 else if (currentAttacker.Health <= 0)
                 {
-                    Console.WriteLine(currentEnemy.Name + "Wins");
+                    Console.WriteLine(currentEnemy.Name + " Wins ");
                     end = true;
-                    Console.WriteLine(currentEnemy.Name + "final health " + currentEnemy.Health);
-                    Console.WriteLine(currentAttacker.Name + "final health " + currentAttacker.Health);
+                    Console.WriteLine(currentEnemy.Name + " final health " + currentEnemy.Health);
+                    Console.WriteLine(currentAttacker.Name + " final health " + currentAttacker.Health);
                 }
                 Hero swipe = currentAttacker;
                 currentAttacker = currentEnemy;
